@@ -12,7 +12,7 @@
 	<artifactId>redis-springdata</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>redis-springdata</name>
-	<description>Redis Spring Data example</description>
+	<description>Spring Data Redis Example</description>
 
 	<properties>
 		<java.version>1.8</java.version>
