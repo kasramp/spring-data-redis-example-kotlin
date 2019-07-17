@@ -8,7 +8,7 @@ The code is implemented using Kotlin but it's easy for Java developers to unders
 
 For more in-depth details, have a look at the tutorial at the link below:
 
-[https://blog.madadipouya.com/2019/05/01/getting-started-with-spring-data-elasticsearch/](https://blog.madadipouya.com/2019/05/01/getting-started-with-spring-data-elasticsearch/)
+[https://blog.madadipouya.com/2019/07/09/getting-started-with-spring-data-redis-with-kotlin/](https://blog.madadipouya.com/2019/07/09/getting-started-with-spring-data-redis-with-kotlin/)
 
 ## Endpoints
 
