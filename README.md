@@ -2,13 +2,14 @@
 
 ## Introduction
 
-This example shows how to use Spring Data with Redis to do CRUD operations. 
+This example shows how to use Spring Data with Redis to do CRUD operations. Additionally, it demonstrates using Redis as a message broker.
 
 The code is implemented using Kotlin but it's easy for Java developers to understand as well.
 
-For more in-depth details, have a look at the tutorial at the link below:
+For more in-depth details, have a look at the tutorials at links below:
 
 [https://blog.madadipouya.com/2019/07/09/getting-started-with-spring-data-redis-with-kotlin/](https://blog.madadipouya.com/2019/07/09/getting-started-with-spring-data-redis-with-kotlin/)
+[https://blog.madadipouya.com/2019/07/17/redis-pub-sub-with-spring-boot/](https://blog.madadipouya.com/2019/07/17/redis-pub-sub-with-spring-boot/)
 
 ## Endpoints
 
