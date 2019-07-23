@@ -1,7 +1,6 @@
-package com.madadipouya.redis.springdata.example.subscriber
+package com.madadipouya.redis.springdata.example.consumer
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.madadipouya.redis.springdata.example.model.Movie
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.data.redis.connection.Message
@@ -19,5 +18,4 @@ class MovieAddedListener(val objectMapper: ObjectMapper) : MessageListener {
         val movieMap = objectMapper.readValue(message.toString(), Map::class.java)
         logger.info("Notified on a new Movie creation {}, {}", movieMap["id"], movieMap["name"])
     }
-
 }

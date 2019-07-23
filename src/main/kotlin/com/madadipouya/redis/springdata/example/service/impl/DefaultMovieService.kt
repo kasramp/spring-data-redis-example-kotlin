@@ -7,10 +7,11 @@ import com.madadipouya.redis.springdata.example.repository.ActorRepository
 import com.madadipouya.redis.springdata.example.repository.MovieRepository
 import com.madadipouya.redis.springdata.example.service.MovieService
 import com.madadipouya.redis.springdata.example.service.exception.MovieNotFoundException
+import com.madadipouya.redis.springdata.example.subscription.service.SubscriptionService
 import org.springframework.stereotype.Service
 
 @Service
-class DefaultMovieService(val movieRepository: MovieRepository, val movieAddedProducer: MovieAddedProducer) : MovieService {
+class DefaultMovieService(val movieRepository: MovieRepository, val movieAddedProducer: MovieAddedProducer, val subscriptionService: SubscriptionService) : MovieService {
 
     override fun getMovie(id: String): Movie = movieRepository.findById(id).orElseThrow {
         MovieNotFoundException("Unable to find movie for $id id")
@@ -30,6 +31,7 @@ class DefaultMovieService(val movieRepository: MovieRepository, val movieAddedPr
     override fun createMovie(movieDto: MovieController.MovieDto): Movie {
         val movie = movieRepository.save(Movie(name = movieDto.name.orEmpty(), genre = movieDto.genre.orEmpty(), year = movieDto.year))
         movieAddedProducer.publish(movie)
+        subscriptionService.notifySubscribers(movie)
         return movie
     }
 
