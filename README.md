@@ -8,8 +8,9 @@ The code is implemented using Kotlin but it's easy for Java developers to unders
 
 For more in-depth details, have a look at the tutorials at links below:
 
-[https://blog.madadipouya.com/2019/07/09/getting-started-with-spring-data-redis-with-kotlin/](https://blog.madadipouya.com/2019/07/09/getting-started-with-spring-data-redis-with-kotlin/)
-[https://blog.madadipouya.com/2019/07/17/redis-pub-sub-with-spring-boot/](https://blog.madadipouya.com/2019/07/17/redis-pub-sub-with-spring-boot/)
+- [https://blog.madadipouya.com/2019/07/09/getting-started-with-spring-data-redis-with-kotlin/](https://blog.madadipouya.com/2019/07/09/getting-started-with-spring-data-redis-with-kotlin/)
+- [https://blog.madadipouya.com/2019/07/17/redis-pub-sub-with-spring-boot/](https://blog.madadipouya.com/2019/07/17/redis-pub-sub-with-spring-boot/)
+- [https://blog.madadipouya.com/2019/08/02/server-sent-events-with-spring-mvc-sseemitter/](https://blog.madadipouya.com/2019/08/02/server-sent-events-with-spring-mvc-sseemitter/)
 
 ## Endpoints
 
