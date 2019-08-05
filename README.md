@@ -40,7 +40,7 @@ After that the Redis should be accessible via port `6379` on `localhost`
 Then you can run the application like below:
 
 ```bash
-$ ./mvnw spring-boot:run
+$ ./mvnw spring-boot:run -Dserver.port=8090
 ```
 
 If you have a Redis running in another port or host, simply override below environment variables:

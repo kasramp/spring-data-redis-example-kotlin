@@ -13,5 +13,5 @@ data class Movie(
 ) {
     @get:Id
     var id: String? = null
-    @Indexed @get:Reference var actors: List<Actor> = listOf()
+    @Indexed @get:Reference var actors: List<Actor>? = listOf()
 }
