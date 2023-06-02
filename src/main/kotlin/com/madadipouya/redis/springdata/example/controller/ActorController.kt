@@ -6,13 +6,14 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer
 import com.madadipouya.redis.springdata.example.model.Actor
 import com.madadipouya.redis.springdata.example.model.Movie
 import com.madadipouya.redis.springdata.example.service.ActorService
+import jakarta.validation.Valid
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.Past
 import org.springframework.format.annotation.DateTimeFormat
 import org.springframework.http.HttpStatus
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 import java.time.LocalDate
-import jakarta.validation.constraints.NotBlank
-import jakarta.validation.constraints.Past
 
 @RestController
 @RequestMapping("/v1/actors")
@@ -20,7 +21,7 @@ class ActorController(val actorService: ActorService) {
 
     @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
-    private fun createActor(@Validated actor: ActorDto): Actor = actorService.createActor(actor)
+    private fun createActor(@Valid @RequestBody actor: ActorDto): Actor = actorService.createActor(actor)
 
     @GetMapping(value = ["/{id}"])
     @ResponseStatus(HttpStatus.OK)
@@ -28,7 +29,7 @@ class ActorController(val actorService: ActorService) {
 
     @PutMapping(value = ["/{id}"])
     @ResponseStatus(HttpStatus.OK)
-    private fun updateActor(@PathVariable id: String, @Validated actor: ActorDto): Actor = actorService.updateActor(id, actor)
+    private fun updateActor(@PathVariable id: String, @Valid @RequestBody actor: ActorDto): Actor = actorService.updateActor(id, actor)
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -45,11 +46,11 @@ class ActorController(val actorService: ActorService) {
     }
 
     data class ActorDto(
-            @get:NotBlank val firstName: String,
-            @get:NotBlank val lastName: String,
-            @field:DateTimeFormat(pattern = "yyyy-MM-dd")
-            @field:JsonDeserialize(using = LocalDateDeserializer::class)
-            @field:JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-            @get:Past val birthDate: LocalDate
+        @get:NotBlank(message = "First name cannot be empty") val firstName: String,
+        @get:NotBlank(message = "Last name cannot be empty") val lastName: String,
+        @field:DateTimeFormat(pattern = "yyyy-MM-dd")
+        @field:JsonDeserialize(using = LocalDateDeserializer::class)
+        @field:JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+        @get:Past(message = "Provide date in yyyy-MM-dd format in past time") val birthDate: LocalDate
     )
 }
