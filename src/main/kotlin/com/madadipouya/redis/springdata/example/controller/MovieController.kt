@@ -8,10 +8,10 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType.APPLICATION_STREAM_JSON_VALUE
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
-import javax.validation.Valid
-import javax.validation.constraints.Min
-import javax.validation.constraints.NotBlank
-import javax.validation.constraints.PastOrPresent
+import jakarta.validation.Valid
+import jakarta.validation.constraints.Min
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.PastOrPresent
 
 @RestController
 @RequestMapping("/v1/movies")

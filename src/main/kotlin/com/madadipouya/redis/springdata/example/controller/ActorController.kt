@@ -11,8 +11,8 @@ import org.springframework.http.HttpStatus
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
 import java.time.LocalDate
-import javax.validation.constraints.NotBlank
-import javax.validation.constraints.Past
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.Past
 
 @RestController
 @RequestMapping("/v1/actors")
