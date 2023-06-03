@@ -32,7 +32,7 @@ class DefaultSubscriptionService : SubscriptionService {
                 }
             }
         } catch (ioException: IOException) {
-            logger.warn("Failed to notify suscriber about the new Movie = {}, {}, {}", movie.name, movie.genre, movie.year)
+            logger.warn("Failed to notify subscriber about the new Movie = {}, {}, {}", movie.name, movie.genre, movie.year)
         }
     }
 }

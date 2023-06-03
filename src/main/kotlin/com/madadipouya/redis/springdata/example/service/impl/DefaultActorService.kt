@@ -14,7 +14,7 @@ import java.util.*
 class DefaultActorService(val actorRepository: ActorRepository, val movieService: MovieService) : ActorService {
 
     override fun getActor(id: String) = actorRepository.findById(id).orElseThrow {
-        MovieNotFoundException("Unable to find movie for $id id")
+        MovieNotFoundException("Unable to find actor for $id id")
     }
 
     override fun getAllActors(): List<Actor> = actorRepository.findAll().toList()

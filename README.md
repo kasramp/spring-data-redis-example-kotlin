@@ -4,14 +4,14 @@
 
 This example shows how to use Spring Data with Redis to do CRUD operations. Additionally, it demonstrates using Redis as a message broker.
 
-The code is implemented using Kotlin but it's easy for Java developers to understand as well.
+The code is implemented using Kotlin, but it's easy for Java developers to understand as well.
 
 For more in-depth details, have a look at the tutorials at links below:
 
-- [https://geekyhacker.com/2019/07/09/getting-started-with-spring-data-redis-with-kotlin/](https://geekyhacker.com/2019/07/09/getting-started-with-spring-data-redis-with-kotlin/)
-- [https://geekyhacker.com/2019/07/17/redis-pub-sub-with-spring-boot/](https://geekyhacker.com/2019/07/17/redis-pub-sub-with-spring-boot/)
-- [https://geekyhacker.com/2019/08/02/server-sent-events-with-spring-mvc-sseemitter/](https://geekyhacker.com/2019/08/02/server-sent-events-with-spring-mvc-sseemitter/)
-- [https://geekyhacker.com/2019/08/07/distributed-sse-with-spring-sseemitter-and-redis-pub-sub/](https://geekyhacker.com/2019/08/07/distributed-sse-with-spring-sseemitter-and-redis-pub-sub/)
+- [Getting started with Spring Data Redis with Kotlin](https://geekyhacker.com/2019/07/09/getting-started-with-spring-data-redis-with-kotlin/)
+- [Redis Pub/Sub with Spring Boot](https://geekyhacker.com/2019/07/17/redis-pub-sub-with-spring-boot/)
+- [Server-Sent Events with Spring MVC SseEmitter](https://geekyhacker.com/2019/08/02/server-sent-events-with-spring-mvc-sseemitter/)
+- [Distributed SSE with Spring SseEmitter and Redis Pub/Sub](https://geekyhacker.com/2019/08/07/distributed-sse-with-spring-sseemitter-and-redis-pub-sub/)
 
 ## Endpoints
 
@@ -34,7 +34,7 @@ The project needs Redis to run. There's a `docker-compose` file contains all nec
 To use it. Just run:
 
 ```bash
-$ docker-compose -f docker-compose up -d
+$ docker-compose -f docker-compose.yml up -d
 ``` 
 
 After that the Redis should be accessible via port `6379` on `localhost` 
@@ -52,4 +52,4 @@ If you have a Redis running in another port or host, simply override below envir
 
 Or modify `application.properties` file.
 
-To interact with the APIs, after running the project, just oper [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html). You should see Swagger to interact with.
+To interact with the APIs, after running the project, just open [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html). You should see Swagger to interact with.

@@ -4,14 +4,13 @@ import com.madadipouya.redis.springdata.example.model.Movie
 import com.madadipouya.redis.springdata.example.service.MovieService
 import com.madadipouya.redis.springdata.example.subscription.model.Subscriber
 import com.madadipouya.redis.springdata.example.subscription.service.SubscriptionService
+import jakarta.validation.Valid
+import jakarta.validation.constraints.Min
+import jakarta.validation.constraints.NotBlank
+import jakarta.validation.constraints.PastOrPresent
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType.APPLICATION_STREAM_JSON_VALUE
-import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.*
-import javax.validation.Valid
-import javax.validation.constraints.Min
-import javax.validation.constraints.NotBlank
-import javax.validation.constraints.PastOrPresent
 
 @RestController
 @RequestMapping("/v1/movies")
@@ -19,7 +18,7 @@ class MovieController(val movieService: MovieService, val subscriptionService: S
 
     @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
-    private fun createMovie(@Valid movie: MovieDto): Movie = movieService.createMovie(movie)
+    private fun createMovie(@Valid @RequestBody movie: MovieDto): Movie = movieService.createMovie(movie)
 
     @GetMapping(value = ["/{id}"])
     @ResponseStatus(HttpStatus.OK)
@@ -27,7 +26,7 @@ class MovieController(val movieService: MovieService, val subscriptionService: S
 
     @PutMapping(value = ["/{id}"])
     @ResponseStatus(HttpStatus.OK)
-    private fun updateMovie(@PathVariable id: String, @Validated movie: MovieDto): Movie = movieService.updateMovie(id, movie)
+    private fun updateMovie(@PathVariable id: String, @Valid @RequestBody movie: MovieDto): Movie = movieService.updateMovie(id, movie)
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -42,8 +41,8 @@ class MovieController(val movieService: MovieService, val subscriptionService: S
     private fun subscribeToMovie(): Subscriber = subscriptionService.subscribe(Subscriber())
 
     data class MovieDto(
-            @get:NotBlank val name: String?,
-            @get:NotBlank val genre: String?,
-            @get:Min(value = 1900) @PastOrPresent val year: Int
+        @get:NotBlank(message = "Movie name cannot be empty") val name: String?,
+        @get:NotBlank(message = "Movie genre cannot be empty") val genre: String?,
+        @get:Min(message = "Movie year should be 1900 or after", value = 1900) @PastOrPresent val year: Int
     )
 }
