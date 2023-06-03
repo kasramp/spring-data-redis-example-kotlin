@@ -8,10 +8,10 @@ The code is implemented using Kotlin, but it's easy for Java developers to under
 
 For more in-depth details, have a look at the tutorials at links below:
 
-- [Getting started with Spring Data Redis with Kotlin](https://geekyhacker.com/2019/07/09/getting-started-with-spring-data-redis-with-kotlin/)
-- [Redis Pub/Sub with Spring Boot](https://geekyhacker.com/2019/07/17/redis-pub-sub-with-spring-boot/)
-- [Server-Sent Events with Spring MVC SseEmitter](https://geekyhacker.com/2019/08/02/server-sent-events-with-spring-mvc-sseemitter/)
-- [Distributed SSE with Spring SseEmitter and Redis Pub/Sub](https://geekyhacker.com/2019/08/07/distributed-sse-with-spring-sseemitter-and-redis-pub-sub/)
+- [Getting started with Spring Data Redis with Kotlin](https://www.geekyhacker.com/getting-started-with-spring-data-redis-with-kotlin/)
+- [Redis Pub/Sub with Spring Boot](https://www.geekyhacker.com/redis-pub-sub-with-spring-boot/)
+- [Server-Sent Events with Spring MVC SseEmitter](https://www.geekyhacker.com/server-sent-events-with-spring-mvc-sseemitter/)
+- [Distributed SSE with Spring SseEmitter and Redis Pub/Sub](https://www.geekyhacker.com/distributed-sse-with-spring-sseemitter-and-redis-pub-sub/)
 
 ## Endpoints
 
