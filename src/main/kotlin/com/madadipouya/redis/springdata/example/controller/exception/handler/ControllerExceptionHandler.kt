@@ -14,28 +14,36 @@ import org.springframework.web.context.request.WebRequest
 class ControllerExceptionHandler {
 
     @ExceptionHandler(value = [ActorNotFoundException::class, MovieNotFoundException::class])
-    fun handleNotFoundExceptions(exception: Exception, webRequest: WebRequest): ResponseEntity<List<ApiError>> {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(listOf(ApiError(exception.message.orEmpty())))
+    fun handleNotFoundExceptions(exception: Exception, webRequest: WebRequest): ResponseEntity<ApiError> {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiError(exception.message.orEmpty()))
     }
 
     @ExceptionHandler(value = [ConstraintViolationException::class])
-    fun handleConstraintViolationExceptions(exception: ConstraintViolationException, webRequest: WebRequest): ResponseEntity<List<ApiError>> {
-        val errors = exception.constraintViolations.map { violation -> ApiError(violation.message) }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors)
+    fun handleConstraintViolationExceptions(
+        exception: ConstraintViolationException,
+        webRequest: WebRequest
+    ): ResponseEntity<ApiError> {
+        val errors = exception.constraintViolations.map { violation -> violation.message }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiError(errors))
     }
 
     @ExceptionHandler(value = [MethodArgumentNotValidException::class])
-    fun handleMethodArgumentValidationExceptions(exception: MethodArgumentNotValidException, webRequest: WebRequest): ResponseEntity<List<ApiError>> {
+    fun handleMethodArgumentValidationExceptions(
+        exception: MethodArgumentNotValidException,
+        webRequest: WebRequest
+    ): ResponseEntity<ApiError> {
         val errors = exception.bindingResult.fieldErrors.map { fieldError ->
-            ApiError("${fieldError.field}: ${fieldError.defaultMessage}")
+            "${fieldError.field}: ${fieldError.defaultMessage}"
         }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors)
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiError(errors))
     }
 
     @ExceptionHandler(value = [Exception::class])
-    fun handleOtherExceptions(exception: Exception, webRequest: WebRequest): ResponseEntity<Any>? {
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(listOf(ApiError("Server encountered an error")))
+    fun handleOtherExceptions(exception: Exception, webRequest: WebRequest): ResponseEntity<ApiError>? {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ApiError("Server encountered an error"))
     }
 
-    data class ApiError(val message: String)
+    data class ApiError(val errors: List<String>) {
+        constructor(error: String) : this(listOf(error))
+    }
 }
