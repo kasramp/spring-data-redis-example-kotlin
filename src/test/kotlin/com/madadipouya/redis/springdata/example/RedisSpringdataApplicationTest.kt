@@ -14,7 +14,7 @@ import org.testcontainers.utility.DockerImageName
 @Testcontainers
 @ExtendWith(SpringExtension::class)
 @SpringBootTest
-class RedisSpringdataApplicationTests {
+internal class RedisSpringdataApplicationTest {
 
     companion object {
         @Container
