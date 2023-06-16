@@ -16,13 +16,13 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 @Configuration
 class RedisConfig(val messageListener: MessageListener) {
 
-    @Value("\${spring.redis.host}")
+    @Value("\${spring.data.redis.host}")
     lateinit var redisHost: String
 
-    @Value("\${spring.redis.port}")
+    @Value("\${spring.data.redis.port}")
     lateinit var redisPort: String
 
-    @Value("\${spring.redis.topic}")
+    @Value("\${spring.data.redis.topic}")
     lateinit var redisTopic: String
 
     @Bean
