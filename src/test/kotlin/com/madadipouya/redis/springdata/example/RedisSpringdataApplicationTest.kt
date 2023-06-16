@@ -24,9 +24,9 @@ internal class RedisSpringdataApplicationTest {
         @DynamicPropertySource
         fun redisProperties(registry: DynamicPropertyRegistry) {
             registry.add("spring.data.redis.repositories.enabled") { true }
-            registry.add("spring.redis.host") { redisContainer.host }
-            registry.add("spring.redis.port") { redisContainer.firstMappedPort }
-            registry.add("spring.redis.topic") { "movie.update" }
+            registry.add("spring.data.redis.host") { redisContainer.host }
+            registry.add("spring.data.redis.port") { redisContainer.firstMappedPort }
+            registry.add("spring.data.redis.topic") { "movie.update" }
         }
     }
 
