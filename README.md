@@ -12,6 +12,7 @@ For more in-depth details, have a look at the tutorials at links below:
 - [Redis Pub/Sub with Spring Boot](https://www.geekyhacker.com/redis-pub-sub-with-spring-boot/)
 - [Server-Sent Events with Spring MVC SseEmitter](https://www.geekyhacker.com/server-sent-events-with-spring-mvc-sseemitter/)
 - [Distributed SSE with Spring SseEmitter and Redis Pub/Sub](https://www.geekyhacker.com/distributed-sse-with-spring-sseemitter-and-redis-pub-sub/)
+- [How to handle MethodArgumentNotValidException in Spring Boot](https://www.geekyhacker.com/how-to-handle-methodargumentnotvalidexception-in-spring-boot/)
 
 ## Endpoints
 
