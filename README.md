@@ -13,6 +13,7 @@ For more in-depth details, have a look at the tutorials at links below:
 - [Server-Sent Events with Spring MVC SseEmitter](https://www.geekyhacker.com/server-sent-events-with-spring-mvc-sseemitter/)
 - [Distributed SSE with Spring SseEmitter and Redis Pub/Sub](https://www.geekyhacker.com/distributed-sse-with-spring-sseemitter-and-redis-pub-sub/)
 - [How to handle MethodArgumentNotValidException in Spring Boot](https://www.geekyhacker.com/how-to-handle-methodargumentnotvalidexception-in-spring-boot/)
+- [Build Docker images in Spring Boot 3](https://www.geekyhacker.com/build-docker-images-in-spring-boot-3/)
 
 ## Endpoints
 
